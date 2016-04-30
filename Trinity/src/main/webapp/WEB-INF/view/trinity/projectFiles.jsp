@@ -36,8 +36,8 @@
 									</div>
 									<form action="#" id="fileForm" class="form-horizontal">
 										<div class="form-body">	
-										<input type="hidden" id="fileId" name="fileId">									
-										<input type="hidden" id="projectId" name="projectId" value="0">
+										<input type="hidde" id="fileId" name="fileId">									
+										<input type="hidde" id="projectId" name="projectId" value="0">
 											<div class="form-group">
 												<label class="label-control col-md-3">File Name<span class="required"> * </span></label>
 												<div class="col-md-9">
@@ -112,7 +112,6 @@
 						</div>
 					</div>
 					<!-- END BORDERED TABLE PORTLET-->
-		
 			</div>
 	</div>
 	<!-- END CONTENT -->

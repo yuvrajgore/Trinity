@@ -8,5 +8,5 @@ import com.trinity.model.Filemodel;
 
 @Transactional
 public interface FilesRepository extends CrudRepository<Filemodel,Integer> {
-
+	
 }

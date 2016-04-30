@@ -1,12 +1,14 @@
 package com.trinity.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 @Entity
 @Table(name="filestable")
 public class Filemodel {
@@ -24,15 +26,17 @@ public class Filemodel {
 	@Column(name="filedata")
 	private byte[] fileData;
 
-	@Column(name="projectid")
-	private int projectId;
 	
-	public int getProjectId() {
-		return projectId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="projectid")
+	private ProjectModel projectModel;	
+	
+	public ProjectModel getProjectModel() {
+		return projectModel;
 	}
 
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	public void setProjectModel(ProjectModel projectModel) {
+		this.projectModel = projectModel;
 	}
 
 	public byte[] getFileData() {

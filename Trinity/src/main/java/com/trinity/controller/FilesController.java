@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.trinity.model.Filemodel;
 import com.trinity.model.ProjectModel;
-import com.trinity.model.User;
 import com.trinity.service.FileService;
 import com.trinity.service.TrinityService;
 
@@ -32,7 +31,7 @@ public class FilesController {
 	public ModelAndView gotoProject(@ModelAttribute ProjectModel projectModel){
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("projectInfo",this.trinityService.getProjectIdInfo(projectModel));
-		mv.addObject("filesList",this.fileService.getFilesList());
+		mv.addObject("filesList",this.fileService.getFilesList(projectModel));
 		mv.setViewName("trinity/projectFiles");		
 		return mv;
 	}
@@ -45,12 +44,13 @@ public class FilesController {
 																@RequestParam("projectId") Integer projectId,@RequestParam("fileId") Integer fileId) {
 	
 		Filemodel fileModel=new Filemodel();
-		
+		ProjectModel projectModel=new ProjectModel();
 			try {
 				if (fileId!=null) {
 				fileModel.setFileId(fileId);
 				}
-				fileModel.setProjectId(projectId);
+				projectModel.setProjectId(projectId);
+				fileModel.setProjectModel(projectModel);
 				fileModel.setFileName(fileName);
 				fileModel.setFileDescription(fileDescription);
 				fileModel.setFileData(fileData.getBytes());
