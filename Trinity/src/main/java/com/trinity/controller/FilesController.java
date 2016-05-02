@@ -36,8 +36,15 @@ public class FilesController {
 		return mv;
 	}
 	@RequestMapping(value="/getFileIdInfo",method=RequestMethod.POST,produces = "application/json")
-	public @ResponseBody Filemodel getUserIdInfo(@RequestBody Filemodel fileModel){
+	public @ResponseBody Filemodel getFileIdInfo(@RequestBody Filemodel fileModel){
 		return this.fileService.getFileInformationById(fileModel);	
+	}
+	@RequestMapping(value="/getFileIData",method=RequestMethod.POST,produces = "application/json")
+	public @ResponseBody String getFileIData(@RequestBody Filemodel fileModel){
+		fileModel= this.fileService.getFileInformationById(fileModel);
+		byte[] bytes=fileModel.getFileData();
+		String fileData = new String(bytes);
+		return fileData;
 	}
 	@RequestMapping(value = "/submitFile", method = RequestMethod.POST,headers = "Accept=application/json")
 	public @ResponseBody Filemodel submitFile(@RequestParam("fileData") MultipartFile fileData,@RequestParam("fileName") String fileName,@RequestParam("fileDescription") String fileDescription,

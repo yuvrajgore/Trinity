@@ -109,6 +109,24 @@
 								</tbody>
 								</table>
 							</div>
+					<div id="fileModal" class="modal fade" tabindex="-1" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true"></button>
+								<h4 class="modal-title">
+									<b>View File Data</b>
+								</h4>
+							</div>
+							<div class="modal-body">
+								<div class="scroller" style="height: 400px" 	data-always-visible="1" data-rail-visible1="1">
+									<div id="ShowFileData"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 						</div>
 					</div>
 					<!-- END BORDERED TABLE PORTLET-->
@@ -152,13 +170,13 @@ function editFile(id){
 function viewFile(id){
 	$.ajax({
 		type : "POST",
-		url : "getFileIdInfo",
+		url : "getFileIData",
 		contentType : "application/json",
-		dataType : 'json',
+		dataType : 'text',
 		data: JSON.stringify({fileId:id}),
-		success : function(data) {
-			alert("please show the below consoled data in div tag");
-			 console.log(data);
+		success : function(response) {
+			$("#fileModal").modal('show');
+			$("#ShowFileData").text(response);
 		},
 		error:function(response){
 			showFileError("Unable to load file.");
