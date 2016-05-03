@@ -26,17 +26,15 @@ public class Filemodel {
 	@Column(name="filedata")
 	private byte[] fileData;
 
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="projectid")
-	private ProjectModel projectModel;	
-	
-	public ProjectModel getProjectModel() {
-		return projectModel;
+	@Column(name="projectid")
+	private int projectId;	
+
+	public int getProjectId() {
+		return projectId;
 	}
 
-	public void setProjectModel(ProjectModel projectModel) {
-		this.projectModel = projectModel;
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
 	}
 
 	public byte[] getFileData() {

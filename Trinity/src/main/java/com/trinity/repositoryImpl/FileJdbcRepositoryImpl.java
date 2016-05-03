@@ -18,7 +18,9 @@ public class FileJdbcRepositoryImpl implements FileJdbcRepository {
 	@Override
 	public Iterable<Filemodel> findByProjectId_Id(ProjectModel projectModel) {
 		List<Filemodel> fileList=null;
-		String Query="SELECT ft.id fileId,pt.id projectId,pt.projectName,pt.projectDescription,ft.fileName,ft.fileDescription FROM `projecttable` pt INNER JOIN filestable ft ON pt.id=ft.projectId WHERE ft.projectId="+projectModel.getProjectId()+"";
+		String Query="SELECT filestable.id fileId,projecttable.id projectId,"
+				          + "filestable.filename fileName,filestable.filedescription fileDescription FROM `projecttable` LEFT OUTER JOIN filestable ON"
+				          + " projecttable.id=filestable.projectid WHERE projecttable.id="+projectModel.getProjectId()+" ";
 		try {
 			fileList=jdbcTemplate.query(Query,new FileMapper());
 		} catch (Exception e) {

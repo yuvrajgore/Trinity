@@ -51,13 +51,11 @@ public class FilesController {
 																@RequestParam("projectId") Integer projectId,@RequestParam("fileId") Integer fileId) {
 	
 		Filemodel fileModel=new Filemodel();
-		ProjectModel projectModel=new ProjectModel();
 			try {
 				if (fileId!=null) {
 				fileModel.setFileId(fileId);
 				}
-				projectModel.setProjectId(projectId);
-				fileModel.setProjectModel(projectModel);
+				fileModel.setProjectId(projectId);
 				fileModel.setFileName(fileName);
 				fileModel.setFileDescription(fileDescription);
 				fileModel.setFileData(fileData.getBytes());

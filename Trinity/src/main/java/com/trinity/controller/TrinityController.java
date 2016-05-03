@@ -26,10 +26,7 @@ public class TrinityController {
 	public String gotoUploadFile(){
 		return "trinity/uploadFileInProject";
 	}
-	@RequestMapping("/regularExpression")
-	public String gotoRegularExpression(){
-		return "home";
-	}
+
 	@RequestMapping(value="/getTrinityProjectInfo",method=RequestMethod.POST,produces = "application/json")
 	public @ResponseBody Iterable<ProjectModel> getTrinityProjectInfo(){
 		return this.trinityService.getTrinityProjectInfo();

@@ -21,6 +21,28 @@ public class ProjectModel {
 	@Column(name="projectdescription")
 	public String projectDescription;
 
+	@Column(name="regexstatus")
+	public int regexstatus;	
+	
+	@Column(name="extractdata")
+	public String extractdata;	
+	
+	public String getExtractdata() {
+		return extractdata;
+	}
+
+	public void setExtractdata(String extractdata) {
+		this.extractdata = extractdata;
+	}
+
+	public int getRegexstatus() {
+		return regexstatus;
+	}
+
+	public void setRegexstatus(int regexstatus) {
+		this.regexstatus = regexstatus;
+	}
+
 	public int getProjectId() {
 		return projectId;
 	}

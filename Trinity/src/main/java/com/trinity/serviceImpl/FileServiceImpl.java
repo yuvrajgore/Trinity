@@ -20,7 +20,6 @@ public class FileServiceImpl implements FileService{
 	public Iterable<Filemodel> getFilesList(ProjectModel projectModel) {
 		Iterable<Filemodel> filesList=null;
 		try {
-			//filesList=filesRepository.findAll();
 			filesList=fileJdbcRepository.findByProjectId_Id(projectModel);
 		} catch (Exception e) {
 			System.out.println("Error to fetch files list:"+e.getMessage());

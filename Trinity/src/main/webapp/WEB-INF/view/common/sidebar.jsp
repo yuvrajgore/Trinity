@@ -133,7 +133,7 @@
 						</li>
 					</ul>
 				</li>
-			<li id="upload">
+		<!-- 	<li id="upload">
 					<a href="javascript:;">
 						<i class="fa fa-folder-open"></i>
 						<span class="title">
@@ -142,7 +142,7 @@
 						
 					</a>
 				
-				</li>	
+				</li> -->	
 				
 			</ul>
 			<!-- END SIDEBAR MENU -->

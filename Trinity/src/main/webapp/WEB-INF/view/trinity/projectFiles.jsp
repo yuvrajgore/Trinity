@@ -37,7 +37,7 @@
 									<form action="#" id="fileForm" class="form-horizontal">
 										<div class="form-body">	
 										<input type="hidde" id="fileId" name="fileId">									
-										<input type="hidde" id="projectId" name="projectId" value="0">
+										<input type="hidde" id="projectId" name="projectId" value="${projectInfo.projectId}">
 											<div class="form-group">
 												<label class="label-control col-md-3">File Name<span class="required"> * </span></label>
 												<div class="col-md-9">
@@ -156,8 +156,8 @@ function editFile(id){
 		dataType : 'json',
 		data: JSON.stringify({fileId:id}),
 		success : function(data) {
+			console.log(data);
 			 $("#responsive").modal('show');
-			 $("#projectId").val(data.projectId);
 			 $("#fileId").val(data.fileId);
 			 $("#fileName").val(data.fileName);
 			 $("#fileDescription").val(data.fileDescription);
@@ -234,27 +234,6 @@ function viewFile(id){
 		 	    });
 
 		 	    return false;
-	/* 	var fileInformation=$("#fileForm").serializeArray();
-		var fileObject = '{';
-		$(fileInformation).each(function(index, obj) {
-			fileObject += '"' + obj.name + '" : "' + obj.value + '",';
-		});
-		fileObject += ' "" : "" ';
-		fileObject += '}';
-		$.ajax({
-			type:"POST",
-			contentType : "application/json",
-			dataType : 'json',
-			url:"submitFile",
-			data:fileObject,
-			success:function(response){
-				$('#responsive').modal('hide');
-				displayFileSuccessMessage('ADD');
-				window.location.reload();
-			},
-			error:function(response){
-				showFileError("Error has been occured while submitting the data.");
-				}
-		});	 */
+
 	}
 </script>
