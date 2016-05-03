@@ -3,6 +3,7 @@ package com.trinity.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.trinity.model.Filemodel;
 import com.trinity.model.ProjectModel;
 import com.trinity.repository.ProjectRepository;
 import com.trinity.service.TrinityService;
@@ -50,4 +51,24 @@ public class TrinityServiceImpl implements TrinityService {
 		}
 	}
 
+	@Override
+	public ProjectModel getExtractData(ProjectModel projectModel) {
+		try {
+			projectRepository.findOne(projectModel.getProjectId());
+		} catch (Exception e) {
+			System.out.println("Exception to fetch  Extracted data......"+e.getMessage());
+		}
+		return projectModel;
+	}
+
+	@Override
+	public void extractData(Iterable<Filemodel> filesList) {
+		ProjectModel projectModel=new ProjectModel();
+		
+		try {
+			projectRepository.save(projectModel);
+		} catch (Exception e) {
+			System.out.println("Exception to save  extracted  data......."+e.getMessage());
+		}
+	}
 }
