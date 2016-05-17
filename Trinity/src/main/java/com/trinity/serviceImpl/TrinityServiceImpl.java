@@ -1,5 +1,8 @@
 package com.trinity.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,7 +67,11 @@ public class TrinityServiceImpl implements TrinityService {
 	@Override
 	public void extractData(Iterable<Filemodel> filesList) {
 		ProjectModel projectModel=new ProjectModel();
-		
+		List<Filemodel> list=new ArrayList<Filemodel>();
+		for(Filemodel model:filesList){
+			list.add(model);
+		}
+		int max=list.size();
 		try {
 			projectRepository.save(projectModel);
 		} catch (Exception e) {

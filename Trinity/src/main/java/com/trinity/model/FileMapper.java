@@ -14,6 +14,7 @@ public class FileMapper implements RowMapper<Filemodel>  {
 		filemodel.setProjectId(rs.getInt("projectId"));
 		filemodel.setFileName(rs.getString("fileName"));
 		filemodel.setFileDescription(rs.getString("fileDescription"));
+		filemodel.setFileData(rs.getBytes("fileData"));
 		return filemodel;
 	}
 

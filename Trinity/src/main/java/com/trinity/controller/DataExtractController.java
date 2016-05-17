@@ -36,8 +36,8 @@ public class DataExtractController {
 	}
 	@RequestMapping(value="/generateRegEx",method=RequestMethod.POST,produces = "application/json")
 	public @ResponseBody ProjectModel gotoExtractedData(@RequestBody ProjectModel projectModel){
-		Iterable<Filemodel> filesList=this.fileService.getFilesList(projectModel);
-		this.trinityService.getExtractData(filesList);
+		Iterable<Filemodel> filesList=this.fileService.getFilesList(projectModel);		
+		this.trinityService.extractData(filesList);
 		return projectModel;
 	}
 }
